@@ -14,6 +14,7 @@ public class App {
         System.out.println("Hello, World!");
 
         ArbolBinario arbolBinario = new ArbolBinario();
+        
         Node nodeRoot = new Node(1);
         nodeRoot.setLeft(new Node(2));
         nodeRoot.setRight(new Node(3));
