@@ -2,7 +2,10 @@ package main;
 
 import main.materia.controllers.ArbolBinario;
 import main.materia.controllers.ArbolesAVL;
+import main.materia.controllers.Graph;
+import main.materia.controllers.Sets;
 import main.materia.models.Node;
+import main.materia.models.NodeGraph;
 
 /*                   1                   
  *          2                  3
@@ -45,5 +48,42 @@ public class App {
         for (int value : values) {
             tree.insert(value);
         }
+        runGraph();
+    }
+
+    private static void runGraph() {
+        Graph graph = new Graph();
+        //  NodeGraph node1=new NodeGraph(1);
+        // NodeGraph node2=new NodeGraph(2);
+        // NodeGraph node3=new NodeGraph(3);
+        // NodeGraph node4=new NodeGraph(4);
+        // NodeGraph node5=new NodeGraph(5);
+
+        NodeGraph node1 = graph.addNode(1);
+        NodeGraph node2 = graph.addNode(2);
+        NodeGraph node3 = graph.addNode(3);
+        NodeGraph node4 = graph.addNode(4);
+        NodeGraph node5 = graph.addNode(5);
+
+        graph.addEdge(node1, node2);
+        graph.addEdge(node1, node3);
+        graph.addEdge(node2, node4);
+        graph.addEdge(node4, node5);
+
+        graph.printGraph();
+
+        System.out.println("DFS a partir del nodo 1:");
+        graph.getDFS(node1);
+        
+        System.out.println(   "\nBFS a partir del nodo 1:");
+        graph.getBFS(node1);
+
+        System.out.println("\nMatriz de adyacencia:");
+        graph.printAdjacencyMatrix();
+        runSets();
+    }
+
+    public static void runSets(){
+        Sets variableClase = new Sets();
     }
 }
